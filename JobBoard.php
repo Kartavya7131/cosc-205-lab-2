@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 
+<?php 
+    session_start();
+?>
+
 <html>
     <head>
         <title>Job Postings</title>
