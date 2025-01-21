@@ -6,7 +6,7 @@
     </head>
 
     <body>
-        <form>
+        <form action="CompanySignupHandler.php" method="post">
             <label for="cname">Company Name: </label>
             <input type="text" placeholder="Company Name" name="cname"><br>
             
@@ -53,11 +53,11 @@
             <label for="yearrevenu">Yearly Revenu: </label>
             <input type="number" step="1000" value="100000" placeholder="Yearly Revenu" name="yearrevenu"><br>
             
-            <label for="employee count"> employee count: </label>
-            <input type="number" value="10" placeholder="employee count" name="employeecount"><br>
+            <label for="employees"> Employee count: </label>
+            <input type="number" value="10" placeholder="Employee count" name="employees"><br>
             
-            <label for="yearfounder"> year company founded: </label>
-            <input type="text" placeholder="year founded" name="yearfounder"><br>            
+            <label for="yearfounded"> Year company founded: </label>
+            <input type="number" min="1900" max="2099" value="2015" name="yearfounded"><br>            
             
             <br>
             <input type="submit">
