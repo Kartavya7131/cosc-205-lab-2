@@ -5,10 +5,15 @@
 <html>
     <head>
         <title>Job Postings</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <form action="LoginPage.html">
-            <input type="submit", value="Login">
-        </form>
+        <ul>
+            <li>
+                <form action="LoginPage.php">
+                <input type="submit", value="Login">
+                </form>
+            </li>
+        </ul>
     </body>
 </html>
