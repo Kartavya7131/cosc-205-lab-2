@@ -2,6 +2,7 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
     $fname = fixInput($_POST['fname']);
     $lname = fixInput($_POST['lname']);
     $age = fixInput($_POST['age']);
