@@ -7,7 +7,7 @@
         <title>Job Postings</title>
     </head>
     <body>
-        <form action="LoginPage.html">
+        <form action="LoginPage.php">
             <input type="submit", value="Login">
         </form>
     </body>
