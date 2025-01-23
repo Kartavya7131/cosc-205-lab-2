@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <form>
+        <form action='Post'>
             <input type="text" placeholder="Email">
             <input type="password" placeholder="Password">
             <input type="submit">
