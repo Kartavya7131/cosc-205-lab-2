@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $CEOName = fixInput($_POST['ceoname']);
     $YearRev = fixInput($_POST['yearrevenu']);
     $empCount = fixInput($_POST['employeeCount']);
-    $yearFounded = fixInputq($_POST['yearfounded']);
+    $yearFounded = fixInput($_POST['yearfounded']);
 
     $query = mysqli_query($sql, "INSERT INTO employers values ('" . $companyName 
     . ", " . $companyDescription . ", " . $email . "', SHA1('" . $pass . "'), '"
