@@ -3,14 +3,14 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    $fname = fixInput($_POST['fname']);
-    $lname = fixInput($_POST['lname']);
-    $age = fixInput($_POST['age']);
-    $email = fixInput($_POST['email']);
-    $user = fixInput($_POST['username']);
-    $pass = fixInput($_POST['password']);
-    $education = fixInput($_POST['education']);
-    $fileUpload = $_FILES['ResumeName']['tmp_name'];
+    $fname = fixInput($_POST['First_Name']);
+    $lname = fixInput($_POST['Last_Name']);
+    $age = fixInput($_POST['Age']);
+    $email = fixInput($_POST['Email']);
+    $user = fixInput($_POST['Username']);
+    $pass = fixInput($_POST['Password']);
+    $education = fixInput($_POST['Education']);
+    $fileUpload = $_FILES['Resume']['tmp_name'];
 
     $sql =  mysqli_connect("localhost", "cs213user", "letmein", "CourseFinalDB");
 
