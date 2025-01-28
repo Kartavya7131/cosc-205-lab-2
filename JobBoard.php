@@ -1,7 +1,7 @@
 <?php
- session_start();
-include("dbconnect.php");
-$conn = connectDB();
+    session_start();
+    include "dbFunctions.php";
+    $conn = connectDB();
 ?>
 
 <!DOCTYPE html>

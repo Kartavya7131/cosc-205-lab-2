@@ -10,9 +10,9 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <form action='Post'>
-            <input type="text" placeholder="Email">
-            <input type="password" placeholder="Password">
+        <form action='LoginHandler.php' method="POST">
+            <input type="text" name="email" placeholder="Email" value="<?php echo $_SESSION['email']?>">
+            <input type="password" name="password" placeholder="Password">
             <input type="submit">
         </form>
 

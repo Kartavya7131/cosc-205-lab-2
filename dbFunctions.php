@@ -8,4 +8,11 @@ function connectDB() {
 
     return $conn;
 }
+
+function QueryDB($query){
+    $conn = connectDB();
+    $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+    return $result;
+}
 ?>

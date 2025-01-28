@@ -1,34 +1,39 @@
 <?php
-session_start();
-include "dbconnect.php";
+    session_start();
+    include "dbFunctions.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $companyName = fixInput($_POST['cname']);
+        $companyDescription = fixInput($_POST['cdesc']);
+        $email = fixInput($_POST['email']);
+        $pass = fixInput($_POST['password']);
+        $industry = fixInput($_POST['industry']);
+        $CEOName = fixInput($_POST['ceoname']);
+        $YearRev = fixInput($_POST['yearrevenu']);
+        $empCount = fixInput($_POST['employeeCount']);
+        $yearFounded = fixInput($_POST['yearfounded']);
 
-    $sql = connectDB();
+        $sprintf = sprintf("Select * from %s where Email='%s'", "student", $email);
+        $result = QueryDB($sprintf);
 
-    $companyName = fixInput($_POST['cname']);
-    $companyDescription = fixInput($_POST['cdesc']);
-    $email = fixInput($_POST['email']);
-    $pass = fixInput($_POST['password']);
-    $industry = fixInput($_POST['industry']);
-    $CEOName = fixInput($_POST['ceoname']);
-    $YearRev = fixInput($_POST['yearrevenu']);
-    $empCount = fixInput($_POST['employeeCount']);
-    $yearFounded = fixInput($_POST['yearfounded']);
+        if (mysqli_num_rows($result) <= 0){
+            $sprintf = sprintf("INSERT INTO %s values ('%s', '%s', '%s', SHA1('%s'), '%s', '%s', %d, %d, %d)", "employer", $companyName, $companyDescription, $email, $pass, $industry, $CEOName, $YearRev, $empCount, $yearFounded);
+            $query = QueryDB($sprintf);
 
-    $sprintf = sprintf("INSERT INTO %s values ('%s', '%s', '%s', SHA1('%s'), '%s', '%s', %d, %d, %d)", "employer", $companyName, $companyDescription, $email, $pass, $industry, $CEOName, $YearRev, $empCount, $yearFounded);
+            $_SESSION['email'] = $email;
 
-    $query = mysqli_query($sql, $sprintf) or die(mysqli_error($sql));
+            header("Location: LoginPage.php");
+            exit();
+        }
+        else {
+            header("Location: CompanySignup.html");
+            exit();
+        }
+    }
 
-    $_SESSION['email'] = $email;
-
-    header("Location: LoginPage.php");
-    exit();
-}
-
-function fixInput($in) {
-    $in = trim($in);
-    $in = stripslashes($in);
-    return $in;
-}
+    function fixInput($in) {
+        $in = trim($in);
+        $in = stripslashes($in);
+        return $in;
+    }
 ?>
