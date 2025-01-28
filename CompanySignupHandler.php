@@ -12,9 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pass = fixInput($_POST['password']);
     $industry = fixInput($_POST['industry']);
     $CEOName = fixInput($_POST['ceoname']);
-    $YearRev = (int) fixInput($_POST['yearrevenu']);
-    $empCount = (int) fixInput($_POST['employeeCount']);
-    $yearFounded = (int) fixInput($_POST['yearfounded']);
+    $YearRev = fixInput($_POST['yearrevenu']);
+    $empCount = fixInput($_POST['employeeCount']);
+    $yearFounded = fixInputq($_POST['yearfounded']);
 
     $sprintf = sprintf("INSERT INTO %s values ('%s', '%s', '%s', SHA1('%s'), '%s', '%s', %d, %d, %d)", "employer", $companyName, $companyDescription, $email, $pass, $industry, $CEOName, $YearRev, $empCount, $yearFounded);
 
