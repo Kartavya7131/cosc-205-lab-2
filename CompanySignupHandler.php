@@ -1,9 +1,10 @@
 <?php
 session_start();
+include "dbconnect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $sql =  mysqli_connect("localhost", "cs213user", "letmein", "CourseFinalDB");
+    $sql = connectDB();
 
     $companyName = fixInput($_POST['cname']);
     $companyDescription = fixInput($_POST['cdesc']);
@@ -13,12 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $CEOName = fixInput($_POST['ceoname']);
     $YearRev = fixInput($_POST['yearrevenu']);
     $empCount = fixInput($_POST['employeeCount']);
-    $yearFounded = fixInput($_POST['yearfounded']);
+    $yearFounded = fixInputq($_POST['yearfounded']);
 
-    $query = mysqli_query($sql, "INSERT INTO employers values ('" . $companyName 
-    . ", " . $companyDescription . ", " . $email . "', SHA1('" . $pass . "'), '"
-    . $industry. ", " . $CEOName . ", " . $YearRev 
-    . ", " . $empCount . ", " . $yearFounded . ")") or die(mysqli_error($sql));
+    $sprintf = sprintf("INSERT INTO %s values ('%s', '%s', '%s', SHA1('%s'), '%s', '%s', %d, %d, %d)", "employers", $companyName, $companyDescription, $email, $pass, $industry, $CEOName, $YearRev, $empCount, $yearFounded);
+
+    echo "Hello";
+
+    $query = mysqli_query($sql, $sprintf) or die(mysqli_error($sql));
 
     $_SESSION['email'] = $email;
 

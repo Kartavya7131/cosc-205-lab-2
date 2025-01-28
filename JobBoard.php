@@ -1,8 +1,8 @@
 <?php
  session_start();
-// include("dbconnect.php");
-// $conn = connectDB();
-// ?>
+include("dbconnect.php");
+$conn = connectDB();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -30,26 +30,26 @@
             <th>Apply</th>
         </tr>
         <?php
-        // $query = "SELECT * FROM job_posting";
-        // $result = mysqli_query($conn, $query);
+        $query = "SELECT * FROM job_posting";
+        $result = mysqli_query($conn, $query);
 
-        // while ($row = mysqli_fetch_assoc($result)) {
-        //     echo "<tr>
-        //             <td>{$row['Title']}</td>
-        //             <td>{$row['Description']}</td>
-        //             <td>{$row['Salary_Range']}</td>
-        //             <td>{$row['Job_type']}</td>
-        //             <td>{$row['location']}</td>
-        //             <td>
-        //                 <form method='post' action='applyJob.php'>
-        //                     <input type='hidden' name='job_id' value='{$row['Job_ID']}'>
-        //                     <input type='submit' value='Apply'>
-        //                 </form>
-        //             </td>
-        //           </tr>";
-        // }
-        // mysqli_close($conn);
-        // 
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>
+                    <td>{$row['Title']}</td>
+                    <td>{$row['Description']}</td>
+                    <td>{$row['Salary_Range']}</td>
+                    <td>{$row['Job_type']}</td>
+                    <td>{$row['location']}</td>
+                    <td>
+                        <form method='post' action='applyJob.php'>
+                            <input type='hidden' name='job_id' value='{$row['Job_ID']}'>
+                            <input type='submit' value='Apply'>
+                        </form>
+                    </td>
+                  </tr>";
+        }
+        mysqli_close($conn);
+        
         ?>
     </table>
 </body>
