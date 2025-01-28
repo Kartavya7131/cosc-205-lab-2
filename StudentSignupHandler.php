@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "dbconnect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
@@ -9,17 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lname = fixInput($_POST['lname']);
     $age = fixInput($_POST['age']);
     $email = fixInput($_POST['email']);
-    $user = fixInput($_POST['username']);
+    $user = strtolower(fixInput($_POST['username']));
     $pass = fixInput($_POST['password']);
     $education = fixInput($_POST['education']);
-    $fileUpload = $_FILES['ResumeName']['tmp_name'];
 
-    $query = mysqli_query($sql, "INSERT INTO student values ('" . strtolower($user) 
-    . "', SHA1('" . $pass . "'), '"
-    . $fname . ", " . $lname . ", " . $age 
-    . ", " . $email . ", " . $education . ", " . file_get_contents($fileUpload) . ")") or die(mysqli_error($sql));
+    $sprintf = sprintf("INSERT INTO %s values ('%s', SHA1('%s'), '%s', '%s', %d, '%s', '%s')", "student", $user, $pass, $fname, $lname, $age, $email, $education);
 
-    $_SESSION['username'] = $user;
+    $query = mysqli_query($sql, $sprintf) or die(mysqli_error($sql));
+
+    $_SESSION['email'] = $email;
 
     header("Location: LoginPage.php");
     exit();
@@ -30,15 +29,4 @@ function fixInput($in) {
     $in = stripslashes($in);
     return $in;
 }
-
-// $target_path = tmp_name;
-// $target_path = $target_path . basename($_FILES['fileupload']['tmp_name']);
-
-    // if (move_uploaded_file($_FILES['fileupload']['tmp_name'], $target_path)) {
-    //         echo "The file \"". basename($_FILES['fileupload']['name']). 
-    //             "\" has been uploaded. <br />";
-    //            echo '<a href="userlogin.php">Back to your page</a>';
-    // } else {
-    //         echo "There was an error uploading the file, please try again! <br />";
-    // }
 ?>
