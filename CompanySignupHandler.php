@@ -16,9 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $empCount = (int) fixInput($_POST['employeeCount']);
     $yearFounded = (int) fixInput($_POST['yearfounded']);
 
-    $sprintf = sprintf("INSERT INTO %s values ('%s', '%s', '%s', SHA1('%s'), '%s', '%s', %d, %d, %d)", "employers", $companyName, $companyDescription, $email, $pass, $industry, $CEOName, $YearRev, $empCount, $yearFounded);
+    $sprintf = sprintf("INSERT INTO %s values ('%s', '%s', '%s', SHA1('%s'), '%s', '%s', %d, %d, %d)", "employer", $companyName, $companyDescription, $email, $pass, $industry, $CEOName, $YearRev, $empCount, $yearFounded);
 
-    echo "Hello";
+    echo $sprintf;
 
     $query = mysqli_query($sql, $sprintf) or die(mysqli_error($sql));
 
