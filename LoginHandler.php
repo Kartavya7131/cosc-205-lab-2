@@ -8,7 +8,7 @@
         $email = $_POST["email"];
         $passwrd = $_POST["password"];
 
-        $sprintf = sprintf("Select * from %s where Email = '%s'", "employer", $email);
+        $sprintf = sprintf("Select * from %s where Email = '%s' AND Password = SHA1('%s')", "employer", $email, $passwrd);
         $result = QueryDB($sprintf);
 
         if (mysqli_num_rows($result) > 0){
