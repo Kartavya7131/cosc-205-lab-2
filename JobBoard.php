@@ -13,7 +13,7 @@
 <body>
     
 
-        <h1>Welcome to the Job Board</h1>
+    <h1>Welcome to the Job Board</h1>
     <h1>Available Job Postings</h1>
     <table>
         <tr>
@@ -49,7 +49,7 @@
         
         ?>
     </table>
-    <form action="LoginPage.php" id="loginButton">
+    <form action="LoginPage.php" id="loginbutton">
     <input type="submit" value="Login">
     </form>
 </body>
