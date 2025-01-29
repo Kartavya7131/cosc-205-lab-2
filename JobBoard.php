@@ -32,7 +32,7 @@
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
-            RenderJobPosting($row['Job_ID'], $row['Title'], $row['Description'], (int)$row['Salary_Range'], $row['Job_type'], $row['location']);
+            RenderJobPosting($row['Job_ID'], $row['Title'], $row['Description'], $row['Salary_Range'], $row['Job_type'], $row['location']);
         }
         mysqli_close($conn);
         
