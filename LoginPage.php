@@ -11,7 +11,7 @@
     </head>
     <body>
         <form action='LoginHandler.php' method="POST">
-            <input type="text" name="email" placeholder="Email" value="<?php echo $_SESSION['email']?>">
+            <input type="text" name="email" placeholder="Email">
             <input type="password" name="password" placeholder="Password">
             <input type="submit">
         </form>

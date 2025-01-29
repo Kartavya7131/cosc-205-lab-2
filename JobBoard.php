@@ -11,13 +11,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-        <ul>
-            <li>
-                <form action="LoginPage.php">
-                    <input type="submit" value="Login">
-                </form>
-            </li>
-        </ul>
+    
+
         <h1>Welcome to the Job Board</h1>
     <h1>Available Job Postings</h1>
     <table>
@@ -30,7 +25,9 @@
             <th>Apply</th>
         </tr>
         <?php
+
         $query = "SELECT * FROM job_posting";
+
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
@@ -52,5 +49,8 @@
         
         ?>
     </table>
+    <form action="LoginPage.php" id="loginButton">
+    <input type="submit" value="Login">
+    </form>
 </body>
 </html>
