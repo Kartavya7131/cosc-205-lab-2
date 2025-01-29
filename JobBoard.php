@@ -1,6 +1,7 @@
 <?php
     session_start();
     include "dbFunctions.php";
+    include "JobPostingHandler.php";
     $conn = connectDB();
 ?>
 
@@ -9,13 +10,13 @@
 <head>
     <title>View Jobs</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="ApplytoJob.js" defer></script>
 </head>
 <body>
-    
-
-        <h1>Welcome to the Job Board</h1>
+    <h1>Welcome to the Job Board</h1>
     <h1>Available Job Postings</h1>
-    <table>
+    
+    <table id="Helper">
         <tr>
             <th>Title</th>
             <th>Description</th>
@@ -31,26 +32,17 @@
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>
-                    <td>{$row['Title']}</td>
-                    <td>{$row['Description']}</td>
-                    <td>{$row['Salary_Range']}</td>
-                    <td>{$row['Job_type']}</td>
-                    <td>{$row['location']}</td>
-                    <td>
-                        <form method='post' action='applyJob.php'>
-                            <input type='hidden' name='job_id' value='{$row['Job_ID']}'>
-                            <input type='submit' value='Apply'>
-                        </form>
-                    </td>
-                  </tr>";
+            RenderJobPosting($row['Job_ID'], $row['Title'], $row['Description'], (int)$row['Salary_Range'], $row['Job_type'], $row['location']);
         }
         mysqli_close($conn);
         
         ?>
     </table>
+
     <form action="LoginPage.php" id="loginButton">
-    <input type="submit" value="Login">
+        <input type="submit" value="Login">
     </form>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </body>
 </html>
