@@ -57,7 +57,7 @@
         <input type="submit" value="Login">
     </form>
     <form action="jobposting.php" id="CreatePost">
-        <input type="submit" value="Login">
+        <input type="submit" value="create job posting">
     </form>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
