@@ -15,6 +15,7 @@
             echo "Employer Logged In";
             $_SESSION['Email'] = $email;
             $_SESSION['isStudent'] = false;
+            $_SESSION["LoggedIn"] = true;
 
             header("Location: JobBoard.php");
             exit();
@@ -27,6 +28,7 @@
                 echo "Student Logged In";
                 $_SESSION['Email'] = $email;
                 $_SESSION['isStudent'] = true;
+                $_SESSION["LoggedIn"] = true;
 
                 header("Location: JobBoard.php");
                 exit();

@@ -3,6 +3,10 @@
     include "dbFunctions.php";
     include "JobPostingHandler.php";
     $conn = connectDB();
+
+    if (!isset($_SESSION["LoggedIn"])){
+        $_SESSION["LoggedIn"] = false;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +14,7 @@
 <head>
     <title>View Jobs</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="ApplytoJob.js" defer></script>
+    <script src="JobBoardBtn.js" defer></script>
 </head>
 <body>
     <h1>Welcome to the Job Board</h1>
@@ -23,7 +27,11 @@
             <th>Salary</th>
             <th>Type</th>
             <th>Location</th>
-            <th>Apply</th>
+            <?php
+                if ($_SESSION['LoggedIn']){
+                    echo "<th>Apply</th>";
+                }
+            ?>
         </tr>
         <?php
 
@@ -32,14 +40,23 @@
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
-            RenderJobPosting($row['Job_ID'], $row['Title'], $row['Description'], $row['Salary_Range'], $row['Job_type'], $row['location']);
+            RenderJobPosting($row['Job_ID'], $row['Title'], $row['Description'], $row['Salary_Range'], $row['Job_type'], $row['location'] ,$_SESSION['LoggedIn']);
         }
         mysqli_close($conn);
         
         ?>
     </table>
+    
+    <!-- New Button For Login and Create POst <Unfinished>
+    <div>
+        <button class='LoginButton'>Login</button>
+        <button class='CreatePostButton'>Add Post</button>
+    </div> -->
 
     <form action="LoginPage.php" id="loginButton">
+        <input type="submit" value="Login">
+    </form>
+    <form action="jobposting.php" id="CreatePost">
         <input type="submit" value="Login">
     </form>
 
