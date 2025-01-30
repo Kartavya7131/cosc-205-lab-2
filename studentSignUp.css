@@ -31,18 +31,14 @@ body {
   #stdForm input[type="number"],
   #stdForm input[type="email"],
   #stdForm input[type="password"],
-  #eduSelect {
-    width: 90%;
+  #stdForm select {
+    width: 100%;
     padding: 0.75rem;
     margin-bottom: 1rem;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
-  }
-
-  #eduSelect{
-      width: 96%;
   }
   
   #stdForm input[type="text"]:focus,

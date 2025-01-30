@@ -17,9 +17,7 @@
     <script src="JobBoardBtn.js" defer></script>
 </head>
 <body>
-    
-
-        <h1>Welcome to the Job Board</h1>
+    <h1>Welcome to the Job Board</h1>
     <h1>Available Job Postings</h1>
     
     <table id="Helper">
@@ -48,8 +46,15 @@
         
         ?>
     </table>
+    
+    <!-- New Button For Login and Create POst <Unfinished>
+    <div>
+        <button class='LoginButton'>Login</button>
+        <button class='CreatePostButton'>Add Post</button>
+    </div> -->
+
     <form action="LoginPage.php" id="loginButton">
-    <input type="submit" value="Login">
+        <input type="submit" value="Login">
     </form>
     <form action="jobposting.php" id="CreatePost">
         <input type="submit" value="create job posting">

@@ -30,10 +30,9 @@ body {
   #compForm input[type="text"],
   #compForm input[type="email"],
   #compForm input[type="password"],
-  #compForm input[type="number"],
   #compSelect,
   #compTxtArea{
-    width:90%;
+    width: 100%;
     padding: 0.75rem;
     margin-bottom: 1rem;
     border: 1px solid #ddd;
@@ -41,15 +40,10 @@ body {
     font-size: 1rem;
     transition: border-color 0.3s ease;
   }
-
-  #compSelect{
-    width: 96%;
-  }
   
   #compForm input[type="text"]:focus,
   #compForm input[type="email"]:focus,
   #compForm input[type="password"]:focus,
-  #compForm input[type="number"]:focus,
   #compForm select:focus,
   #compForm textarea:focus {
     border-color: #4CAF50;
