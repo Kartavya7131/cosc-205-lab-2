@@ -1,68 +1,193 @@
+/* General Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 }
 
 header {
   background-color: #4CAF50;
   color: white;
-  padding: 0px;
+  padding: 20px;
   text-align: center;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+h1 {
+  font-size: 2.5rem;
+  margin: 20px 0;
+  color: #4CAF50;
+}
+
+/* Form Styles */
 form {
-  max-width: 500px;
-  width: 100%;
-  margin: 2rem 0;
-  padding: 1rem;
-  border: 1px solid #ddd;
+  background-color: white;
+  padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  width: 90%;
+  max-width: 500px;
 }
 
 label {
   display: block;
-  margin-bottom: 0.5rem;
   font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #555;
 }
 
-input {
-  width: 90%;
-  padding: 0.5rem;
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="submit"],
+textarea {
+  width: 100%;
+  padding: 0.75rem;
   margin-bottom: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+input[type="submit"],
 button {
   background-color: #4CAF50;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
+input[type="submit"]:hover,
 button:hover {
   background-color: #45a049;
 }
 
+/* Table Styles */
+table {
+  width: 90%;
+  max-width: 1000px;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  table-layout: fixed; /* Ensures the table respects column widths */
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  word-wrap: break-word; /* Ensures long text doesn't overflow */
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+/* Form inside Table */
+table form {
+  margin: 0; /* Remove default form margin */
+  padding: 0; /* Remove default form padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table input[type="submit"] {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  white-space: nowrap; /* Prevents text from wrapping */
+  margin: 0; /* Remove default margin */
+  border: none; /* Remove default border */
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+table input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+
+/* Ensure the table fits within its container */
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 0.75rem;
+  }
+
+  table input[type="submit"] {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Link Styles */
+a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #45a049;
+}
+
+/* Footer Styles */
 footer {
   margin-top: auto;
   padding: 1rem;
   text-align: center;
-  background-color: #f1f1f1;
+  background-color: #4CAF50;
+  color: white;
   width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
-textarea{ resize: none;}  
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+  form {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
 }

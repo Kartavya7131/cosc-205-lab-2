@@ -1,0 +1,94 @@
+/* Student Signup Page Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  #stdForm {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem;
+  }
+  
+  #stdForm label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  #stdForm input[type="text"],
+  #stdForm input[type="number"],
+  #stdForm input[type="email"],
+  #stdForm input[type="password"],
+  #stdForm select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  #stdForm input[type="text"]:focus,
+  #stdForm input[type="number"]:focus,
+  #stdForm input[type="email"]:focus,
+  #stdForm input[type="password"]:focus,
+  #stdForm select:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  #eduSelect{
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  #stdForm input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #stdForm input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #stdForm {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
+  
+    #stdForm input[type="text"],
+    #stdForm input[type="number"],
+    #stdForm input[type="email"],
+    #stdForm input[type="password"],
+    #stdForm select {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+  
+    #stdForm input[type="submit"] {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+  }
