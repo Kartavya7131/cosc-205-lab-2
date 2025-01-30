@@ -3,11 +3,11 @@
 <html>
     <head>
         <title>Student Signup</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="studentSignUp.css">
     </head>
 
     <body>
-        <form action="StudentSignupHandler.php" method="POST">
+        <form id="stdForm"action="StudentSignupHandler.php" method="POST">
             <label for="fname">First Name: </label>
             <input type="text" placeholder="First Name" name="fname"><br>
             
@@ -27,7 +27,7 @@
             <input type="password" minlength=7 placeholder="Password" name="password"><br>
 
             <label for="education">Highest Education: </label>
-            <select name="education">
+            <select id="eduSelect" name="education">
                 <option>No Education</option>
                 <option>Highschool</option>
                 <option>Diploma</option>
@@ -37,7 +37,7 @@
             </select>
             <br>
           
-            <input type="submit">
+            <input type="submit" value="sign up">
         </form>
     </body>
 </html>

@@ -3,17 +3,17 @@
 <html>
     <head>
         <title>Employer Signup</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="ComapnySignUp.css">
 
     </head>
 
     <body>
-        <form action="CompanySignupHandler.php" method="POST">
+        <form  id= "compForm"action="CompanySignupHandler.php" method="POST">
             <label for="cname">Company Name: </label>
             <input type="text" placeholder="Company Name" name="cname"><br>
             
             <label for="cdesc">Company Description: </label><br>
-            <textarea  rows="5" cols="60" multiple placeholder="Description" name="cdesc"></textarea><br>
+            <textarea  id="compTxtArea" rows="5" cols="60" multiple placeholder="Description" name="cdesc"></textarea><br>
 
             <label for="email">Email: </label>
             <input type="email" placeholder="E-mail" name="email"><br>
@@ -22,39 +22,15 @@
             <input type="password" minlength=7 placeholder="Password" name="password"><br>
 
 
-            <label for="industry">Company Industry: </label>
-            <select name="industry">
-                <option>Agriculture</option>
-                <option>Automotive</option>
-                <option>Aerospace</option>
-                <option>Construction</option>
-                <option>Education</option>
-                <option>Energy</option>
-                <option>Entertainment</option>
-                <option>Finance & Banking</option>
-                <option>Healthcare & Pharmaceuticals</option>
-                <option>Hospitality & Tourism</option>
-                <option>Information Technology (IT)</option>
-                <option>Manufacturing</option>
-                <option>Retail</option>
-                <option>Telecommunications</option>
-                <option>Real Estate</option>
-                <option>Transportation & Logistics</option>
-                <option>Media & Advertising</option>
-                <option>Legal Services</option>
-                <option>Government & Public Sector</option>
-                <option>Nonprofit & NGOs</option>
-                <option>Consulting</option>
-                <option>Environmental & Sustainability</option>
-                <option>Consumer Goods</option>
-                <option>Food & Beverage</option>
-                <option>Textiles & Apparel</option>
-                <option>Biotechnology</option>
-                <option>Marketing & Public Relations</option>
-                <option>Human Resources & Recruitment</option>
-                <option>Insurance</option>
-                <option>Arts & Culture</option>
-            </select><br>
+            <label for="industry">Industry:</label>
+            <select id="compSelect" name="industry" required>
+              <option value="Technology">Technology</option>
+              <option value="Finance">Finance</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Education">Education</option>
+              <option value="Retail">Retail</option>
+              <option value="Other">Other</option>
+            </select>
 
             <label for="ceoname">Name of CEO: </label>
             <input type="text" placeholder="CEO's Name" name="ceoname"><br>
@@ -69,7 +45,7 @@
             <input type="number" min="1900" max="2099" value="2015" name="yearfounded"><br>            
             
             <br>
-            <input type="submit">
+            <input type="submit" value="Sign up">
         </form>
     </body>
 </html>

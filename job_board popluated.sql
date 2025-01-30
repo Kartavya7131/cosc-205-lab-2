@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2025 at 07:15 PM
+-- Generation Time: Jan 29, 2025 at 09:23 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,8 +32,22 @@ CREATE TABLE `employer` (
   `Company_Description` text NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(50) NOT NULL,
-  `Industry` varchar(255) NOT NULL
+  `Industry` varchar(255) NOT NULL,
+  `CEO_Name` varchar(50) DEFAULT NULL,
+  `Yearly_Revenue` int(11) DEFAULT NULL,
+  `Emp_Count` int(11) DEFAULT NULL,
+  `Year_Founded` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `employer`
+--
+
+INSERT INTO `employer` (`Company_Name`, `Company_Description`, `Email`, `Password`, `Industry`, `CEO_Name`, `Yearly_Revenue`, `Emp_Count`, `Year_Founded`) VALUES
+('EduTech', 'Educational technology firm', 'jobs@edutech.com', 'edupass', 'Education', 'Sarah Lee', 15000000, 100, 2015),
+('HealthPlus', 'Healthcare solutions provider', 'careers@healthplus.com', 'securepass', 'Healthcare', 'David Smith', 20000000, 150, 2010),
+('hi', 'hi', 'kart@gmail.com', 'b7a875fc1ea228b9061041b7cec4bd3c52ab3ce3', 'Agriculture', 'hi', 100000, 10, 2015),
+('TechCorp', 'A leading software development company', 'hr@techcorp.com', 'pass123', 'Technology', 'Alice Johnson', 50000000, 200, 2005);
 
 -- --------------------------------------------------------
 
@@ -51,6 +65,17 @@ CREATE TABLE `job_posting` (
   `Company_Name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `job_posting`
+--
+
+INSERT INTO `job_posting` (`Job_ID`, `Title`, `Description`, `Salary_Range`, `Job_type`, `location`, `Company_Name`) VALUES
+(1, 'Software Engineer', 'Develop and maintain software applications.', '$80,000 - $100,000', 'Full-time', 'Kelowna, BC', 'TechCorp'),
+(2, 'Data Analyst', 'Analyze and interpret complex data sets.', '$70,000 - $90,000', 'Full-time', 'Toronto, ON', 'TechCorp'),
+(3, 'Nurse Practitioner', 'Provide healthcare services to patients.', '$90,000 - $110,000', 'Full-time', 'Vancouver, BC', 'HealthPlus'),
+(4, 'IT Support Specialist', 'Assist in troubleshooting and IT support.', '$50,000 - $70,000', 'Part-time', 'Calgary, AB', 'HealthPlus'),
+(5, 'Instructional Designer', 'Create e-learning materials and courses.', '$60,000 - $80,000', 'Full-time', 'Montreal, QC', 'EduTech');
+
 -- --------------------------------------------------------
 
 --
@@ -65,8 +90,18 @@ CREATE TABLE `student` (
   `Age` int(11) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Education` enum('High School','Diploma','Bachelors','Masters','PHD') NOT NULL,
-  `Resume` blob NOT NULL
+  `Resume` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`Username`, `Password`, `First_Name`, `Last_Name`, `Age`, `Email`, `Education`, `Resume`) VALUES
+('jane_smith', 'js5678', 'Jane', 'Smith', 24, 'jane.smith@example.com', '', NULL),
+('john_doe', 'jd1234', 'John', 'Doe', 22, 'john.doe@example.com', '', NULL),
+('mike_brown', 'mb9101', 'Mike', 'Brown', 21, 'mike.brown@example.com', '', NULL),
+('sara_white', 'sw1122', 'Sara', 'White', 23, 'sara.white@example.com', 'PHD', NULL);
 
 -- --------------------------------------------------------
 
@@ -80,6 +115,16 @@ CREATE TABLE `stu_application` (
   `Email` varchar(255) NOT NULL,
   `Resume` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `stu_application`
+--
+
+INSERT INTO `stu_application` (`Username`, `Job_ID`, `Email`, `Resume`) VALUES
+('jane_smith', 2, 'jane.smith@example.com', ''),
+('john_doe', 1, 'john.doe@example.com', ''),
+('mike_brown', 3, 'mike.brown@example.com', ''),
+('sara_white', 4, 'sara.white@example.com', '');
 
 --
 -- Indexes for dumped tables
@@ -119,7 +164,7 @@ ALTER TABLE `stu_application`
 -- AUTO_INCREMENT for table `job_posting`
 --
 ALTER TABLE `job_posting`
-  MODIFY `Job_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Job_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
