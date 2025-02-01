@@ -9,6 +9,9 @@ session_start();
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="topnav">
+        <a class="active" href="JobBoard.php">Home</a>
+    </div>
     <h1>Post a Job</h1>
     <form method="post" action="jobpostings.php">
         <label for="title">Job Title:</label>
