@@ -8,6 +8,7 @@
         $_SESSION["LoggedIn"] = false;
         $_SESSION['isStudent'] = true;
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +23,9 @@
         <a class="active" href="#home">Home</a>
         <?php
             if ($_SESSION["LoggedIn"]){
+                $userName = $_SESSION['Username'];
                 echo "<a href='LogoutHandler.php'>Log out</a>";
-
+                echo "<a class='username'>$userName</a>";
                 if(!$_SESSION['isStudent']){
                     echo "<a href='jobposting.php'>Create Posting</a>";
                 }
