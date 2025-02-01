@@ -15,7 +15,7 @@
         if (mysqli_num_rows($result) > 0){
             //Employer Logged In
             $_SESSION['Email'] = $email;
-            $_SESSION['Company'] = mysqli_fetch_array($result)['0'];
+            $_SESSION['Username'] = mysqli_fetch_array($result)['0'];
             $_SESSION['isStudent'] = false;
             $_SESSION["LoggedIn"] = true;
 
