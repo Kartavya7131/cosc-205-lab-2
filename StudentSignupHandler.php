@@ -7,12 +7,12 @@
         $fname = fixInput($_POST['fname']);
         $lname = fixInput($_POST['lname']);
         $age = fixInput($_POST['age']);
-        $email = fixInput($_POST['email']);
-        $user = strtolower(fixInput($_POST['username']));
+        $email = strtolower(fixInput($_POST['email']));
+        $user = fixInput($_POST['username']);
         $pass = fixInput($_POST['password']);
         $education = fixInput($_POST['education']);
 
-        $sprintf = sprintf("Select * from %s where Email='%s'", "student", $email);
+        $sprintf = sprintf("Select * from %s where Email='%s'", "employer", $email);
         $result = QueryDB($sprintf);
 
         if (mysqli_num_rows($result) <= 0){

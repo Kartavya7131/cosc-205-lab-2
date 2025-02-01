@@ -6,7 +6,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $companyName = fixInput($_POST['cname']);
         $companyDescription = fixInput($_POST['cdesc']);
-        $email = fixInput($_POST['email']);
+        $email = strtolower(fixInput($_POST['email']));
         $pass = fixInput($_POST['password']);
         $industry = fixInput($_POST['industry']);
         $CEOName = fixInput($_POST['ceoname']);

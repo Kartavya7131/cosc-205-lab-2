@@ -1,6 +1,6 @@
 <?php
-    function RenderJobPosting($JobId, $Title, $Desc, $Salary, $Type, $Location, $LoggedIn){
-        $str = sprintf("<td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td>", $Title, $Desc, $Salary, $Type, $Location);
+    function RenderJobPosting($JobId, $Title, $Company, $Desc, $Salary, $Type, $Location, $LoggedIn){
+        $str = sprintf("<td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td>", $Title, $Company, $Desc, $Salary, $Type, $Location);
         if ($LoggedIn){
             $str = sprintf("%s <td><button class='JobApplyButton'>Apply</button></td>", $str);
         }

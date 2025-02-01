@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2025 at 09:23 PM
+-- Generation Time: Feb 01, 2025 at 09:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,10 +44,11 @@ CREATE TABLE `employer` (
 --
 
 INSERT INTO `employer` (`Company_Name`, `Company_Description`, `Email`, `Password`, `Industry`, `CEO_Name`, `Yearly_Revenue`, `Emp_Count`, `Year_Founded`) VALUES
-('EduTech', 'Educational technology firm', 'jobs@edutech.com', 'edupass', 'Education', 'Sarah Lee', 15000000, 100, 2015),
-('HealthPlus', 'Healthcare solutions provider', 'careers@healthplus.com', 'securepass', 'Healthcare', 'David Smith', 20000000, 150, 2010),
-('hi', 'hi', 'kart@gmail.com', 'b7a875fc1ea228b9061041b7cec4bd3c52ab3ce3', 'Agriculture', 'hi', 100000, 10, 2015),
-('TechCorp', 'A leading software development company', 'hr@techcorp.com', 'pass123', 'Technology', 'Alice Johnson', 50000000, 200, 2005);
+('AgriCare', 'We have everything you need for Farms and Gardens alike!', 'jobs@agricare', '3d326e2bf04427b111d8ffbb012550317a7380f7', 'Other', 'Abrigail', 129000, 107, 1999),
+('Dee`s Nuts', 'Has been selling Nuts across America since 1963', 'job@deeznuts.co', '97b918dec08ca5101ec623f6d69b06ae4e00b596', 'Retail', 'Debbie Nutterson', 161000, 69, 1963),
+('EduTech', 'Educational Technology Firm', 'jobs@edutech.com', '23f79c9047693c2d81f75bff3ba65a794630773f', 'Technology', 'Sarah Lee', 166000, 93, 2013),
+('HealthPlus', 'A Healthcare Service Provider', 'careers@healthplus.ca', '9ebbeffedbaffb156b8a7c44e4ba49ef8c28ab0f', 'Healthcare', 'David Smith', 212000, 127, 2009),
+('TechCorp', 'Leading software development company', 'hr@techcorp.com', '0f016db246d4cdceb70316b7de04d1f67b5d3b87', 'Technology', 'Alice Ford', 253000, 227, 2004);
 
 -- --------------------------------------------------------
 
@@ -70,11 +71,12 @@ CREATE TABLE `job_posting` (
 --
 
 INSERT INTO `job_posting` (`Job_ID`, `Title`, `Description`, `Salary_Range`, `Job_type`, `location`, `Company_Name`) VALUES
-(1, 'Software Engineer', 'Develop and maintain software applications.', '$80,000 - $100,000', 'Full-time', 'Kelowna, BC', 'TechCorp'),
-(2, 'Data Analyst', 'Analyze and interpret complex data sets.', '$70,000 - $90,000', 'Full-time', 'Toronto, ON', 'TechCorp'),
-(3, 'Nurse Practitioner', 'Provide healthcare services to patients.', '$90,000 - $110,000', 'Full-time', 'Vancouver, BC', 'HealthPlus'),
-(4, 'IT Support Specialist', 'Assist in troubleshooting and IT support.', '$50,000 - $70,000', 'Part-time', 'Calgary, AB', 'HealthPlus'),
-(5, 'Instructional Designer', 'Create e-learning materials and courses.', '$60,000 - $80,000', 'Full-time', 'Montreal, QC', 'EduTech');
+(1, 'Software Development Lead', 'Looking for a new Leader in the Software space to help our teams in a few projects', '$26,000 - $41,000', 'Full-Time', 'TechCorp - Texas #4', 'TechCorp'),
+(2, 'Database Maintenance Worker', 'Help ensure our databases are never broken', '$21,000 - $40,000', 'Part-Time', 'TechCorp - Florida #2', 'TechCorp'),
+(3, 'Shelf Stocker', 'Stock the Shelves and assist where needed in the store', '$9,000 - $21,000', 'Full-Time', 'AgriCare Store #261', 'AgriCare'),
+(4, 'Healthcare TeleMarketer', 'Call our customers to sell extended health care or other products', '$18,000 - $39,000', 'Full-Time', 'HealthCare Call Center #035', 'HealthPlus'),
+(5, 'Delivery Driver', 'Drives Shipments of Nuts to clients', '$36,000 - $54,000', 'Full-Time', 'Deez Nuts Warehouse #025', 'Dee`s Nuts'),
+(6, 'Sales Rep', 'Help with selling Nuts to more people', '$18,000 - $31,000', 'Full-Time', 'Deez Nuts Call Center #31', 'Dee`s Nuts');
 
 -- --------------------------------------------------------
 
@@ -84,24 +86,24 @@ INSERT INTO `job_posting` (`Job_ID`, `Title`, `Description`, `Salary_Range`, `Jo
 
 CREATE TABLE `student` (
   `Username` varchar(255) NOT NULL,
-  `Password` varchar(30) NOT NULL,
+  `Password` varchar(50) NOT NULL,
   `First_Name` varchar(30) NOT NULL,
   `Last_Name` varchar(30) NOT NULL,
   `Age` int(11) NOT NULL,
   `Email` varchar(255) NOT NULL,
-  `Education` enum('High School','Diploma','Bachelors','Masters','PHD') NOT NULL,
-  `Resume` blob DEFAULT NULL
+  `Education` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`Username`, `Password`, `First_Name`, `Last_Name`, `Age`, `Email`, `Education`, `Resume`) VALUES
-('jane_smith', 'js5678', 'Jane', 'Smith', 24, 'jane.smith@example.com', '', NULL),
-('john_doe', 'jd1234', 'John', 'Doe', 22, 'john.doe@example.com', '', NULL),
-('mike_brown', 'mb9101', 'Mike', 'Brown', 21, 'mike.brown@example.com', '', NULL),
-('sara_white', 'sw1122', 'Sara', 'White', 23, 'sara.white@example.com', 'PHD', NULL);
+INSERT INTO `student` (`Username`, `Password`, `First_Name`, `Last_Name`, `Age`, `Email`, `Education`) VALUES
+('JaneS1985', '40ab67d0840a91170a96c60614b9f72202ae22b8', 'Jane', 'Smith', 27, 'janes@gmail.com', 'Bacholers'),
+('JohnD1927', '6c074fa94c98638dfe3e3b74240573eb128b3d16', 'John', 'Doe', 43, 'johndoe@gmail.com', 'Masters'),
+('KevinProne69', 'a4a65656996380d42c9d6f54ee7c8b39f7dd6ed9', 'Kevin', 'Prone', 18, 'kevinpiscool@hotmail.com', 'Highschool'),
+('MBrown2001', 'f7de6920ceed9aae26dead3d654479d143ea9893', 'Mike', 'Brown', 21, 'mikeb@hotmail.com', 'Highschool'),
+('SaraWhite420', '490a52aab9eecb038d9a68b2d794d0acdb7aea2a', 'Sara', 'White', 24, 'sara.white@yahoo.ca', 'Diploma');
 
 -- --------------------------------------------------------
 
@@ -115,16 +117,6 @@ CREATE TABLE `stu_application` (
   `Email` varchar(255) NOT NULL,
   `Resume` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `stu_application`
---
-
-INSERT INTO `stu_application` (`Username`, `Job_ID`, `Email`, `Resume`) VALUES
-('jane_smith', 2, 'jane.smith@example.com', ''),
-('john_doe', 1, 'john.doe@example.com', ''),
-('mike_brown', 3, 'mike.brown@example.com', ''),
-('sara_white', 4, 'sara.white@example.com', '');
 
 --
 -- Indexes for dumped tables
@@ -164,7 +156,7 @@ ALTER TABLE `stu_application`
 -- AUTO_INCREMENT for table `job_posting`
 --
 ALTER TABLE `job_posting`
-  MODIFY `Job_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Job_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

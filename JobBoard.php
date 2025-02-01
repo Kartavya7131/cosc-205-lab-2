@@ -42,6 +42,7 @@
     <table id="Helper">
         <tr>
             <th>Title</th>
+            <th>Company</th>
             <th>Description</th>
             <th>Salary</th>
             <th>Type</th>
@@ -59,7 +60,7 @@
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
-            RenderJobPosting($row['Job_ID'], $row['Title'], $row['Description'], $row['Salary_Range'], $row['Job_type'], $row['location'], $_SESSION['LoggedIn'] && $_SESSION["isStudent"]);
+            RenderJobPosting($row['Job_ID'], $row['Title'], $row['Company_Name'], $row['Description'], $row['Salary_Range'], $row['Job_type'], $row['location'], $_SESSION['LoggedIn'] && $_SESSION["isStudent"]);
         }
         mysqli_close($conn);
         

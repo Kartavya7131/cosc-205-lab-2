@@ -3,10 +3,11 @@
     session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $db = connectDB();
-
-        $email = $_POST["email"];
+        $email = strtolower($_POST["email"]);
         $passwrd = $_POST["password"];
+
+        echo "<p>" . $email . "</p>";
+        echo "<p>" . $passwrd . "</p>";
 
         $sprintf = sprintf("Select * from %s where Email = '%s' AND Password = SHA1('%s')", "employer", $email, $passwrd);
         $result = QueryDB($sprintf);
@@ -27,6 +28,7 @@
             $result = QueryDB($sprintf);
             if (mysqli_num_rows($result) > 0){
                 //Student Logged In
+                echo "<p>Student Logged In</p>";
                 $_SESSION['Email'] = $email;
                 $_SESSION['Username'] = mysqli_fetch_array($result)['0'];
                 $_SESSION['isStudent'] = true;
@@ -36,7 +38,6 @@
                 exit();
             }
             else {
-                echo "No Login Found";
                 header("Location: LoginPage.php");
                 exit();
             }
