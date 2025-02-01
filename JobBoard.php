@@ -1,11 +1,12 @@
 <?php
     session_start();
     include "dbFunctions.php";
-    include "JobPostingHandler.php";
+    include "JobRenderer.php";
     $conn = connectDB();
 
     if (!isset($_SESSION["LoggedIn"])){
         $_SESSION["LoggedIn"] = false;
+        $_SESSION['isStudent'] = true;
     }
 ?>
 
@@ -22,13 +23,16 @@
         <?php
             if ($_SESSION["LoggedIn"]){
                 echo "<a href='LogoutHandler.php'>Log out</a>";
+
+                if(!$_SESSION['isStudent']){
+                    echo "<a href='jobposting.php'>Create Posting</a>";
+                }
             }
             else
             {
                 echo "<a href='LoginPage.php'>Login</a>";
             }
         ?>
-        <a href="jobposting.php">Create Posting</a>
     </div>
 
 

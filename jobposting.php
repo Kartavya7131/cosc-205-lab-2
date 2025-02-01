@@ -13,15 +13,15 @@ session_start();
         <a class="active" href="JobBoard.php">Home</a>
     </div>
     <h1>Post a Job</h1>
-    <form method="post" action="jobpostings.php">
+    <form method="post" action="JobPostingHandler.php">
         <label for="title">Job Title:</label>
-        <input type="text" name="title" required><br>
+        <input type="text" name="title" placeholder="Title" required><br>
 
         <label for="description">Description:</label>
-        <textarea name="description" required></textarea><br>
+        <textarea name="description" placeholder="Description" required></textarea><br>
 
         <label for="salary">Salary Range:</label>
-        <input type="text" name="salary" required><br>
+        <input type="text" name="salary" placeholder="ex: 10000-35000" required><br>
 
         <label for="type">Job Type:</label>
         <select name="type">
@@ -31,7 +31,7 @@ session_start();
         </select><br>
 
         <label for="location">Location:</label>
-        <input type="text" name="location" required><br>
+        <input type="text" name="location" placeholder="Location" required><br>
 
         <input type="submit" value="Post Job">
     </form>

@@ -1,10 +1,15 @@
 <?php
-    function RenderJobPosting($JobId, $Title, $Desc, $Salary, $Type, $Location, $LoggedIn){
-        $str = sprintf("<td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td>", $Title, $Desc, $Salary, $Type, $Location);
-        if ($LoggedIn){
-            $str = sprintf("%s <td><button class='JobApplyButton'>Apply</button></td>", $str);
-        }
-        $str = sprintf("<tr id=Job-%s> %s </tr>", $JobId, $str);
-        echo $str;
+    include "dbFunctions.php";
+    include "InputFixer.php";
+    session_start();
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $db = connectDB();
+
+        $title = fixInput($_POST["title"]);
+        $desc = fixInput($_POST["description"]);
+        $salRange = fixInput($_POST["salary"]);
+        $type = fixInput($_POST["type"]);
+        $location = fixInput($_POST["location"]);
     }
 ?>

@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include "InputFixer.php";
     include "dbFunctions.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -27,11 +28,5 @@
             header("Location: StudentSignup.html");
             exit();
         }
-    }
-
-    function fixInput($in) {
-        $in = trim($in);
-        $in = stripslashes($in);
-        return $in;
     }
 ?>
