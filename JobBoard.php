@@ -19,7 +19,15 @@
 <body>
     <div class="topnav">
         <a class="active" href="#home">Home</a>
-        <a href="LoginPage.php">Login</a>
+        <?php
+            if ($_SESSION["LoggedIn"]){
+                echo "<a href='LogoutHandler.php'>Log out</a>";
+            }
+            else
+            {
+                echo "<a href='LoginPage.php'>Login</a>";
+            }
+        ?>
         <a href="jobposting.php">Create Posting</a>
     </div>
 
@@ -47,7 +55,7 @@
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
-            RenderJobPosting($row['Job_ID'], $row['Title'], $row['Description'], $row['Salary_Range'], $row['Job_type'], $row['location'] ,$_SESSION['LoggedIn']);
+            RenderJobPosting($row['Job_ID'], $row['Title'], $row['Description'], $row['Salary_Range'], $row['Job_type'], $row['location'], $_SESSION['LoggedIn']);
         }
         mysqli_close($conn);
         
