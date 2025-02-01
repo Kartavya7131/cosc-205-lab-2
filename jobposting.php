@@ -1,5 +1,5 @@
 <?php
-session_start();
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +20,11 @@ session_start();
         <label for="description">Description:</label>
         <textarea name="description" placeholder="Description" required></textarea><br>
 
-        <label for="salary">Salary Range:</label>
-        <input type="text" name="salary" placeholder="ex: 10000-35000" required><br>
+        <label for="salarylow">Salary Lower:</label>
+        <input type="number" name="salarylow" value="10000" step=1000 required><br>
+
+        <label for="salaryup">Salary Upper:</label>
+        <input type="number" name="salaryup" value="35000" step=1000 required><br>
 
         <label for="type">Job Type:</label>
         <select name="type">

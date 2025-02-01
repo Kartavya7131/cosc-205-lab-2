@@ -47,7 +47,7 @@
             <th>Type</th>
             <th>Location</th>
             <?php
-                if ($_SESSION['LoggedIn']){
+                if ($_SESSION['LoggedIn'] && $_SESSION["isStudent"]){
                     echo "<th>Apply</th>";
                 }
             ?>
@@ -59,7 +59,7 @@
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
-            RenderJobPosting($row['Job_ID'], $row['Title'], $row['Description'], $row['Salary_Range'], $row['Job_type'], $row['location'], $_SESSION['LoggedIn']);
+            RenderJobPosting($row['Job_ID'], $row['Title'], $row['Description'], $row['Salary_Range'], $row['Job_type'], $row['location'], $_SESSION['LoggedIn'] && $_SESSION["isStudent"]);
         }
         mysqli_close($conn);
         

@@ -4,12 +4,23 @@
     session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $db = connectDB();
-
         $title = fixInput($_POST["title"]);
         $desc = fixInput($_POST["description"]);
-        $salRange = fixInput($_POST["salary"]);
         $type = fixInput($_POST["type"]);
         $location = fixInput($_POST["location"]);
+
+        $sal1 = number_format((int)$_POST["salarylow"], 0, '.', ',');
+        $sal2 = number_format((int)$_POST["salaryup"], 0, '.', ',');
+
+        $salRange = sprintf("$%s - $%s", $sal1, $sal2);
+
+        $query = QueryDB("SELECT COUNT(*) as total FROM job_posting");
+        $total = (int) mysqli_fetch_array($query)['total'];
+
+        $sprintf = sprintf("INSERT INTO %s values (%d, '%s', '%s', '%s', '%s', '%s', '%s')", "job_posting", $total + 1, $title, $desc, $salRange, $type, $location, $_SESSION['Company']);
+        $query = QueryDB($sprintf);
+
+        header("Location: JobBoard.php");
+        exit();
     }
 ?>
