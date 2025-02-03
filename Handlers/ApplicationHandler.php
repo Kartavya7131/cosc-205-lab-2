@@ -4,7 +4,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_SESSION['Username'];
-        $jobID = $_GET['jobId'];
+        $jobID = $_POST['jobId'];
         $email = $_SESSION['Email'];
 
         // Get file details
@@ -19,6 +19,6 @@
         $result = QueryDB($sql);
     }
 
-    header("Location: LoginPage.php");
+    header("Location: ../LoginPage.php");
     exit();
 ?>

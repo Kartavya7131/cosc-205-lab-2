@@ -4,6 +4,6 @@
     session_unset();
     session_destroy();
 
-    header("Location: JobBoard.php");
+    header("Location: ../JobBoard.php");
     exit();
 ?>

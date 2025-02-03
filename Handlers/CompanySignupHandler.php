@@ -23,15 +23,15 @@
 
             $_SESSION['email'] = $email;
 
-            header("Location: LoginPage.php");
+            header("Location: ../LoginPage.php");
             exit();
         }
         else {
-            header("Location: CompanySignup.html");
+            header("Location: ../CompanySignup.html");
             exit();
         }
     }
 
-    header("Location: LoginPage.php");
+    header("Location: ../LoginPage.php");
     exit();
 ?>
