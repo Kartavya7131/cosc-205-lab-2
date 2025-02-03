@@ -15,7 +15,6 @@
 </html>
 
 <?php
-    header('Content-Type: application/json');
     session_start();
 
     include "dbFunctions.php";
