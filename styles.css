@@ -14,19 +14,23 @@ body {
   text-align: left;
 }
 
+
 header {
-  background-color: #4CAF50;
+  background-color: rgb(159, 226, 191);
   color: white;
   padding: 10px;
   text-align: center;
   width: 100%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
+#toph1{
+  margin-bottom: 5px;
+}
 h1 {
   font-size: 2.5rem;
   margin: 20px 0;
   color: #4CAF50;
+  padding-bottom: 0px;
 }
 
 /* Form Styles */
@@ -169,13 +173,15 @@ a:hover {
 }
 
 /* Footer Styles */
-footer {
-  margin-top: auto;
+#Footer {
+  margin-top: 10px;
   padding: 1rem;
   text-align: center;
-  background-color: #4CAF50;
+  font-size: small;
+  background-color: #83c985;
   color: white;
   width: 100%;
+  height: 10px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -197,7 +203,7 @@ footer {
 /*  Nav bar Css */
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #4CAF50;
+  background-color: #83c985;
   overflow: hidden;
   width: 100%;
 }
@@ -220,7 +226,7 @@ footer {
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #4CAF50;
+  background-color: #83c985;
   color: white;
 }
 .topnav .username {

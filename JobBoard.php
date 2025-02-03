@@ -38,7 +38,7 @@
     </div>
 
 
-    <h1>Welcome to the Job Board</h1>
+    <h1 id="toph1">Student Job Board</h1>
     <h1>Available Job Postings</h1>
     
     <table id="Helper">
@@ -67,7 +67,11 @@
         mysqli_close($conn);
         
         ?>
+        
     </table>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <footer id="Footer">
+        &copy;Copyright Kody, Quintin, Jordan, Kartavya
+    </footer>
 </body>
 </html>
