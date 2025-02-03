@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include "<Helpers>/InputFixer.php";
-    include "<Helpers>/dbFunctions.php";
+    include "../<Helpers>/InputFixer.php";
+    include "../<Helpers>/dbFunctions.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fname = fixInput($_POST['fname']);
