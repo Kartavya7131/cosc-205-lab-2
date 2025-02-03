@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Upload Your Resume</h2>
-    <form action="jobposting.php" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data">
         <input type="file" name="pdf_file" accept="application/pdf" required>
         <button type="submit" name="submit">Upload</button>
     </form>
@@ -37,7 +37,7 @@
         // Read file content
         $pdfData = file_get_contents($fileTmpName);
 
-        $sql = "INSERT INTO `stu_application`(`Username`, `Job_ID`, `Email`, `File_Name`, `Resume`) VALUES ('$username', $jobID , '$email', '$fileName', '" . $pdfData . "')";
+        $sql = "INSERT INTO `stu_application`(`Username`, `Job_ID`, `Email`, `File_Name`, `Resume`) VALUES ('$username', $jobID , '$email', '$fileName', $pdfData)";
         $result = QueryDB($sql);
     }
 ?>
