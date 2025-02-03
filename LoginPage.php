@@ -2,6 +2,15 @@
 
 <?php
     session_start();
+
+    if (!isset($_SESSION['email'])){
+        $_SESSION['email'] = "";
+    }
+
+    if ($_SESSION["LoggedIn"]){
+        header("Location: JobBoard.php");
+        exit();
+    }
 ?>
 
 <html>
@@ -14,7 +23,7 @@
         <a class="active" href="JobBoard.php">Home</a>
     </div>
         <form action='LoginHandler.php' method="POST">
-            <input type="text" name="email" placeholder="Email">
+            <input type="text" name="email" placeholder="Email" value=<?php echo $_SESSION['email'];?>>
             <input type="password" name="password" placeholder="Password">
             <input type="submit">
         </form>

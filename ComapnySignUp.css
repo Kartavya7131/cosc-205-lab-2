@@ -4,12 +4,13 @@ body {
   background-color: #f4f4f9;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+}
+#allignment{
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
-
 #compForm {
   background-color: white;
   padding: 2rem;
@@ -105,9 +106,8 @@ body {
   }
 }
 
- /*  Nav bar Css */
-/* Add a black background color to the top navigation */
 .topnav {
+  
   background-color: #4CAF50;
   overflow: hidden;
   width: 100%;

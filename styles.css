@@ -10,6 +10,9 @@ body {
   align-items: center;
   min-height: 100vh;
 }
+.username {
+  text-align: left;
+}
 
 header {
   background-color: #4CAF50;
@@ -219,4 +222,12 @@ footer {
 .topnav a.active {
   background-color: #4CAF50;
   color: white;
+}
+.topnav .username {
+  float: right;
+  font-weight: bold;
+}
+.topnav .username:hover {
+  background-color: transparent !important;
+  color: #f2f2f2 !important;
 }

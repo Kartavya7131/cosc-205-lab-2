@@ -8,6 +8,7 @@
         $_SESSION["LoggedIn"] = false;
         $_SESSION['isStudent'] = true;
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +23,9 @@
         <a class="active" href="#home">Home</a>
         <?php
             if ($_SESSION["LoggedIn"]){
+                $userName = $_SESSION['Username'];
                 echo "<a href='LogoutHandler.php'>Log out</a>";
-
+                echo "<a class='username'>$userName</a>";
                 if(!$_SESSION['isStudent']){
                     echo "<a href='jobposting.php'>Create Posting</a>";
                 }
@@ -42,6 +44,7 @@
     <table id="Helper">
         <tr>
             <th>Title</th>
+            <th>Company</th>
             <th>Description</th>
             <th>Salary</th>
             <th>Type</th>
@@ -59,7 +62,7 @@
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
-            RenderJobPosting($row['Job_ID'], $row['Title'], $row['Description'], $row['Salary_Range'], $row['Job_type'], $row['location'], $_SESSION['LoggedIn'] && $_SESSION["isStudent"]);
+            RenderJobPosting($row['Job_ID'], $row['Title'], $row['Company_Name'], $row['Description'], $row['Salary_Range'], $row['Job_type'], $row['location'], $_SESSION['LoggedIn'] && $_SESSION["isStudent"]);
         }
         mysqli_close($conn);
         
