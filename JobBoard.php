@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include "Helpers/dbFunctions.php";
-    include "Helpers/JobRenderer.php";
+    include "<Helpers>/dbFunctions.php";
+    include "<Helpers>/JobRenderer.php";
     $conn = connectDB();
 
     if (!isset($_SESSION["LoggedIn"])){

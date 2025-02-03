@@ -1,5 +1,5 @@
 <?php
-    include "Helpers/dbFunctions.php";
+    include "../<Helpers>/dbFunctions.php";
     session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

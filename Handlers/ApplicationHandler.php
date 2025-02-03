@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include "Helpers/dbFunctions.php";
+    include "../<Helpers>/dbFunctions.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_SESSION['Username'];

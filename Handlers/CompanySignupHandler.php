@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include "InputFixer.php";
-    include "dbFunctions.php";
+    include "../<Helpers>/InputFixer.php";
+    include "../<Helpers>/dbFunctions.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $companyName = fixInput($_POST['cname']);

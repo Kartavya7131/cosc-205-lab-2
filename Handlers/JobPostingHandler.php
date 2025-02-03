@@ -1,6 +1,6 @@
 <?php
-    include "Helpers/dbFunctions.php";
-    include "Helpers/InputFixer.php";
+    include "../<Helpers>/dbFunctions.php";
+    include "../<Helpers>/InputFixer.php";
     session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -17,10 +17,10 @@
         $query = QueryDB("SELECT COUNT(*) as total FROM job_posting");
         $total = (int) mysqli_fetch_array($query)['total'];
 
-        $sprintf = sprintf("INSERT INTO %s values (%d, '%s', '%s', '%s', '%s', '%s', '%s')", "job_posting", $total + 1, $title, $desc, $salRange, $type, $location, $_SESSION['Company']);
+        $sprintf = sprintf("INSERT INTO %s values (%d, '%s', '%s', '%s', '%s', '%s', '%s')", "job_posting", $total + 1, $title, $desc, $salRange, $type, $location, $_SESSION['Username']);
         $query = QueryDB($sprintf);
-    }
 
-    header("Location: JobBoard.php");
-    exit();
+        header("Location: JobBoard.php");
+        exit();
+    }
 ?>
