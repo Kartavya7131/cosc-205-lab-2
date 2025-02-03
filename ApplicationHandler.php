@@ -10,7 +10,7 @@
     }
 
     $username = $_SESSION['Username'];
-    $jobID = $_POST['id'];
+    $jobID = $_GET['id'];
     $email = $_SESSION['email'];
 
     if (isset($_POST['submit'])) {
