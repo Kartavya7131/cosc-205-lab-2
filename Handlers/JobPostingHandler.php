@@ -20,7 +20,7 @@
         $sprintf = sprintf("INSERT INTO %s values (%d, '%s', '%s', '%s', '%s', '%s', '%s')", "job_posting", $total + 1, $title, $desc, $salRange, $type, $location, $_SESSION['Username']);
         $query = QueryDB($sprintf);
 
-        header("Location: JobBoard.php");
+        header("Location: ../JobBoard.php");
         exit();
     }
 ?>

@@ -16,7 +16,7 @@
             $_SESSION['isStudent'] = false;
             $_SESSION["LoggedIn"] = true;
 
-            header("Location: JobBoard.php");
+            header("Location: ../JobBoard.php");
             exit();
         }
         else
@@ -31,11 +31,11 @@
                 $_SESSION['isStudent'] = true;
                 $_SESSION["LoggedIn"] = true;
 
-                header("Location: JobBoard.php");
+                header("Location: ../JobBoard.php");
                 exit();
             }
             else {
-                header("Location: LoginPage.php");
+                header("Location: ../LoginPage.php");
                 exit();
             }
         }
