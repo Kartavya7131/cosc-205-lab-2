@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include "InputFixer.php";
-    include "dbFunctions.php";
+    include "../<Helpers>/InputFixer.php";
+    include "../<Helpers>/dbFunctions.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $companyName = fixInput($_POST['cname']);
@@ -23,12 +23,15 @@
 
             $_SESSION['email'] = $email;
 
-            header("Location: LoginPage.php");
+            header("Location: ../LoginPage.php");
             exit();
         }
         else {
-            header("Location: CompanySignup.html");
+            header("Location: ../CompanySignup.html");
             exit();
         }
     }
+
+    header("Location: ../LoginPage.php");
+    exit();
 ?>
