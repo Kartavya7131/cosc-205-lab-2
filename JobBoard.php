@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include "dbFunctions.php";
-    include "JobRenderer.php";
+    include "<Helpers>/dbFunctions.php";
+    include "<Helpers>/JobRenderer.php";
     $conn = connectDB();
 
     if (!isset($_SESSION["LoggedIn"])){
@@ -24,7 +24,7 @@
         <?php
             if ($_SESSION["LoggedIn"]){
                 $userName = $_SESSION['Username'];
-                echo "<a href='LogoutHandler.php'>Log out</a>";
+                echo "<a href='Handlers/LogoutHandler.php'>Log out</a>";
                 echo "<a class='username'>$userName</a>";
                 if(!$_SESSION['isStudent']){
                     echo "<a href='jobposting.php'>Create Posting</a>";

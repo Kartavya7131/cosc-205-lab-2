@@ -1,6 +1,6 @@
 <?php
-    include "dbFunctions.php";
-    include "InputFixer.php";
+    include "../<Helpers>/dbFunctions.php";
+    include "../<Helpers>/InputFixer.php";
     session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -19,7 +19,7 @@
         $sprintf = sprintf("INSERT INTO %s values (%d, '%s', '%s', '%s', '%s', '%s', '%s')", "job_posting", NULL, $title, $desc, $salRange, $type, $location, $_SESSION['Username']);
         $query = QueryDB($sprintf);
 
-        header("Location: JobBoard.php");
+        header("Location: ../JobBoard.php");
         exit();
     }
 ?>
