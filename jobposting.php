@@ -27,7 +27,7 @@
         <input type="number" name="salaryup" value="35000" step=1000 required><br>
 
         <label for="type">Job Type:</label>
-        <select name="type">
+        <select id="jobTypeSelect" name="type">
             <option>Full-Time</option>
             <option>Part-Time</option>
             <option>Internship</option>
