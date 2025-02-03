@@ -13,10 +13,8 @@
     </form>
 </body>
 </html>
-
 <?php
     session_start();
-
     include "dbFunctions.php";
     include "JobRenderer.php";
 
