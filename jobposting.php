@@ -13,7 +13,7 @@
         <a class="active" href="JobBoard.php">Home</a>
     </div>
     <h1>Post a Job</h1>
-    <form method="post" action="JobPostingHandler.php">
+    <form method="post" action="Handlers/JobPostingHandler.php">
         <label for="title">Job Title:</label>
         <input type="text" name="title" placeholder="Title" required><br>
 

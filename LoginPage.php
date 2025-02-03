@@ -22,7 +22,7 @@
     <div class="topnav">
         <a class="active" href="JobBoard.php">Home</a>
     </div>
-        <form action='LoginHandler.php' method="POST">
+        <form action="Handlers/LoginHandler.php" method="POST">
             <input type="text" name="email" placeholder="Email" value=<?php echo $_SESSION['email'];?>>
             <input type="password" name="password" placeholder="Password">
             <input type="submit">

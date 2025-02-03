@@ -29,4 +29,7 @@
             exit();
         }
     }
+
+    header("Location: LoginPage.php");
+    exit();
 ?>

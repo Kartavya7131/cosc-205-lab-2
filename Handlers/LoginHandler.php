@@ -1,13 +1,10 @@
 <?php
-    include "dbFunctions.php";
+    include "Helpers/dbFunctions.php";
     session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = strtolower($_POST["email"]);
         $passwrd = $_POST["password"];
-
-        echo "<p>" . $email . "</p>";
-        echo "<p>" . $passwrd . "</p>";
 
         $sprintf = sprintf("Select * from %s where Email = '%s' AND Password = SHA1('%s')", "employer", $email, $passwrd);
         $result = QueryDB($sprintf);
