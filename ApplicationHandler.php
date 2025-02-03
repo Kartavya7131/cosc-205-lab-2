@@ -18,14 +18,9 @@
     include "dbFunctions.php";
     include "JobRenderer.php";
 
-    if (!isset($_SESSION["LoggedIn"])){
-        $_SESSION["LoggedIn"] = false;
-        $_SESSION['isStudent'] = true;
-    }
-
     $username = $_SESSION['Username'];
     $jobID = $_GET['jobId'];
-    $email = $_SESSION['email'];
+    $email = $_SESSION['Email'];
 
     if (isset($_POST['submit'])) {
         // Get file details
@@ -34,8 +29,12 @@
 
         // Read file content
         $pdfData = file_get_contents($fileTmpName);
-
-        $sql = "INSERT INTO `stu_application`(`Username`, `Job_ID`, `Email`, `File_Name`, `Resume`) VALUES ('$username', $jobID , '$email', '$fileName', $pdfData)";
+        $pdfData = addslashes($pdfData);
+        
+        $sql = sprintf("INSERT INTO %s values ('%s', %d, '%s', '%s')", "stu_application", $username, $jobID, $email, $pdfData);
         $result = QueryDB($sql);
+
+        header("Location: LoginPage.php");
+        exit();
     }
 ?>
